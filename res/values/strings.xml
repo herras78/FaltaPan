@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">FaltaPan</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>   
+    <string name="A_TXV_1">Show Lists</string>
+    <string name="A_TXV_2">Settings</string>
+    <string name="A_TXV_3">Scheduler of Jobs</string>
 
 </resources>
+
+

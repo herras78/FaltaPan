@@ -15,7 +15,7 @@
         <ImageView
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/ic_falta_pan"/>
+        android:src="@drawable/ic_faltapan_i"/>
         
         <TextView
         android:id="@+id/A_TXV_ID0"    

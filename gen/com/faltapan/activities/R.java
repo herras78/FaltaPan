@@ -34,19 +34,30 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_falta_pan=0x7f020000;
+        public static final int background=0x7f020000;
+        public static final int ic_delete=0x7f020001;
+        public static final int ic_editar=0x7f020002;
+        public static final int ic_faltapan_i=0x7f020003;
+        public static final int ic_faltapan_ii=0x7f020004;
+        public static final int ic_faltapan_iii=0x7f020005;
     }
     public static final class id {
-        public static final int A_TXV_ID0=0x7f090000;
-        public static final int A_TXV_ID1=0x7f090001;
-        public static final int A_TXV_ID2=0x7f090002;
-        public static final int A_TXV_ID3=0x7f090003;
-        public static final int action_settings=0x7f090004;
+        public static final int A_TXV_ID0=0x7f090004;
+        public static final int A_TXV_ID1=0x7f090005;
+        public static final int A_TXV_ID2=0x7f090006;
+        public static final int A_TXV_ID3=0x7f090007;
+        public static final int B_IV_0=0x7f090000;
+        public static final int B_IV_1=0x7f090003;
+        public static final int B_LV_0=0x7f090008;
+        public static final int B_TXV_ID0=0x7f090001;
+        public static final int B_TXV_ID1=0x7f090002;
+        public static final int action_settings=0x7f090009;
     }
     public static final class layout {
-        public static final int layout_activity_principal=0x7f030000;
-        public static final int layout_listado_listas=0x7f030001;
-        public static final int layout_listado_productos=0x7f030002;
+        public static final int item_listado_listas=0x7f030000;
+        public static final int layout_activity_principal=0x7f030001;
+        public static final int layout_listado_listas=0x7f030002;
+        public static final int layout_listado_productos=0x7f030003;
     }
     public static final class menu {
         public static final int activity_principal=0x7f080000;
@@ -86,5 +97,7 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int B_LV_ITEM_STYLE_0=0x7f070003;
+        public static final int B_LV_ITEM_STYLE_1=0x7f070004;
     }
 }

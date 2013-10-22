@@ -19,20 +19,26 @@ public class AdaptadorListadoListas extends ArrayAdapter
 	 
     Activity context;
     Lista[] listado_listas;
-    int item_listado_lista;
+    int item_listado_listas;
  
     public AdaptadorListadoListas(Activity context,int item_layout,Lista[] datos) 
     {
         super(context, item_layout, datos);
         this.context = context;
         listado_listas = datos;
-        item_listado_lista = item_layout;
+        item_listado_listas = item_layout;
     }
  
     public View getView(int position, View convertView, ViewGroup parent) 
     {
-        LayoutInflater inflater = context.getLayoutInflater();
-        View item = inflater.inflate(item_listado_lista, null);
+    	View item = convertView;
+    	
+    	if(item == null)
+    	{
+    		 LayoutInflater inflater = context.getLayoutInflater();
+    	      item = inflater.inflate(item_listado_listas, null);
+    	}
+        
         
         ImageView imv1 = (ImageView) item.findViewById(R.id.B_IV_0);
         imv1.setImageDrawable(context.getResources().getDrawable(listado_listas[position].getImagen()));

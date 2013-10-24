@@ -1,4 +1,4 @@
-package com.faltapan.activities;
+	package com.faltapan.activities;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -18,6 +18,7 @@ public class ActivityPrincipal extends Activity {
 	TextView a_txv_1;
 	TextView a_txv_2;
 	TextView a_txv_3;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 

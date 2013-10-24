@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import android.provider.BaseColumns;
+import android.util.Log;
 
 public class Contractor
 {
@@ -46,6 +47,38 @@ public class Contractor
 			hm_estructura.put("NOMBRE_TIENDA", NOMBRE_TIENDA + " " + PARAM_NOMBRE_TIENDA);
 			
 			return hm_estructura;			
+		}
+
+		public static String getTableName() {
+			return TABLE_NAME;
+		}
+
+		public static String getId() {
+			return ID;
+		}
+
+		public static String getNombre() {
+			return NOMBRE;
+		}
+
+		public static String getFechaCreacion() {
+			return FECHA_CREACION;
+		}
+
+		public static String getNumElementos() {
+			return NUM_ELEMENTOS;
+		}
+
+		public static String getNombreTienda() {
+			return NOMBRE_TIENDA;
+		}
+		
+		public String[] nomCabeceras()
+		{
+			String[] nombre_cabeceras = new String[]{NOMBRE, NUM_ELEMENTOS};
+			
+			return nombre_cabeceras;
+			
 		}
 		
 	}

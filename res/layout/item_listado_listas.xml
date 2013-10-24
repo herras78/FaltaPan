@@ -17,11 +17,11 @@
 	    android:orientation="vertical">
 	    
 	    <TextView
-	        android:id="@+id/B_TXV_ID0"
+	        android:id="@+id/B_TXV_ID1"
 	        style="@style/B_LV_ITEM_STYLE_0"/>
 	    
 	    <TextView
-	        android:id="@+id/B_TXV_ID1"
+	        android:id="@+id/B_TXV_ID2"
 	        style="@style/B_LV_ITEM_STYLE_1"/>
 	    
 	</LinearLayout>

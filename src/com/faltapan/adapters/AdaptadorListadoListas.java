@@ -36,10 +36,9 @@ public class AdaptadorListadoListas extends ArrayAdapter
     	if(item == null)
     	{
     		 LayoutInflater inflater = context.getLayoutInflater();
-    	      item = inflater.inflate(item_listado_listas, null);
+    	     item = inflater.inflate(item_listado_listas, null);
     	}
-        
-        
+         
         ImageView imv1 = (ImageView) item.findViewById(R.id.B_IV_0);
         imv1.setImageDrawable(context.getResources().getDrawable(listado_listas[position].getImagen()));
         

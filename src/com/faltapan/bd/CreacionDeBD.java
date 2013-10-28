@@ -34,7 +34,7 @@ public class CreacionDeBD {
 				}
 			}	
 		}
-		Log.e("FALTAPAN",query_crear_tabla);
+		Log.i("**SQL CREATE",query_crear_tabla);
 		return query_crear_tabla;		
 	}
 
@@ -44,6 +44,7 @@ public class CreacionDeBD {
 		
 		for(int i = 0 ; i < tablas.length;i++)
 		{
+			Log.i("SQL DROP","DROP TABLE IF EXISTS "+ tablas[i]);
 			queries[i]= "DROP TABLE IF EXISTS "+ tablas[i];
 		}
 		

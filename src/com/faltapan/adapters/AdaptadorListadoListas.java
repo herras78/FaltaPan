@@ -39,11 +39,11 @@ public class AdaptadorListadoListas extends ArrayAdapter
     	     item = inflater.inflate(item_listado_listas, null);
     	}
          
-        ImageView imv1 = (ImageView) item.findViewById(R.id.B_IV_0);
+       /* ImageView imv1 = (ImageView) item.findViewById(R.id.B_IV_0);
         imv1.setImageDrawable(context.getResources().getDrawable(listado_listas[position].getImagen()));
         
         ImageView imv2 = (ImageView) item.findViewById(R.id.B_IV_1);
-        imv2.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_delete));
+        imv2.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_delete));*/
  
         TextView lblNombre = (TextView)item.findViewById(R.id.B_TXV_ID0);
         lblNombre.setText(listado_listas[position].getNombre());

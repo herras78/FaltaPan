@@ -9,7 +9,7 @@ import android.util.Log;
 public class Contractor
 {
 	public static final String DB_NAME = "DB_FALTAPAN.db";
-	public static final  int VERSION  = 4;
+	public static final  int VERSION  = 13;
 	public Contractor(){}
 	
 	public static String getDbName() {
@@ -24,13 +24,13 @@ public class Contractor
 	{
 		public static final String TABLE_NAME = "T_LISTA";
 		
-		public static final String ID = "ID";
+		public static final String ID = "_ID";
 		public static final String NOMBRE = "NOMBRE";
 		public static final String FECHA_CREACION = "FECHA_CREACION";
 		public static final String NUM_ELEMENTOS = "NUM_ELEMENTOS";
 		public static final String NOMBRE_TIENDA = "NOMBRE_TIENDA";
 		
-		public static final String PARAM_ID = "INTEGER PRIMARY KEY ";
+		public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
 		public static final String PARAM_NOMBRE = "TEXT NOT NULL";
 		public static final String PARAM_FECHA_CREACION = "INTEGER NOT NULL";
 		public static final String PARAM_NUM_ELEMENTOS = "INTEGER";
@@ -40,7 +40,7 @@ public class Contractor
 			LinkedHashMap<String, String> hm_estructura = new LinkedHashMap<String, String>();
 			
 			hm_estructura.put("TABLE_NAME", TABLE_NAME);
-			hm_estructura.put("ID", ID +  " "  + PARAM_ID);
+			hm_estructura.put("ID", TablaLista._ID +  " "  + PARAM_ID);
 			hm_estructura.put("NOMBRE", NOMBRE+  " "  +PARAM_NOMBRE);
 			hm_estructura.put("FECHA_CREACION", FECHA_CREACION +  " "  + PARAM_FECHA_CREACION);
 			hm_estructura.put("NUM_ELEMENTOS", NUM_ELEMENTOS +  " " + PARAM_NUM_ELEMENTOS);
@@ -87,12 +87,12 @@ public class Contractor
 	{
 		public static final String TABLE_NAME = "T_PRODUCTO";
 		
-		public static final String ID = "ID";
+		public static final String ID = "_ID";
 		public static final String NOMBRE = "NOMBRE";
 		public static final String FECHA_CREACION = "FECHA_CREACION";
 		public static final String FAMILIA = "FAMILIA";
 		
-		public static final String PARAM_ID = "INTEGER PRIMARY KEY";
+		public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
 		public static final String PARAM_NOMBRE = "TEXT NOT NULL";
 		public static final String PARAM_FECHA_CREACION = "INTEGER";
 		public static final String PARAM_FAMILIA = "TEXT";
@@ -101,7 +101,7 @@ public class Contractor
 			LinkedHashMap<String, String> hm_estructura = new LinkedHashMap<String, String>();
 			
 			hm_estructura.put("TABLE_NAME", TABLE_NAME);
-			hm_estructura.put("ID", ID + " " + PARAM_ID);
+			hm_estructura.put("ID", TablaProducto._ID + " " + PARAM_ID);
 			hm_estructura.put("NOMBRE", NOMBRE + " " + PARAM_NOMBRE);
 			hm_estructura.put("FECHA_CREACION", FECHA_CREACION + " " + PARAM_FECHA_CREACION);
 			hm_estructura.put("FAMILIA", FAMILIA + " " + PARAM_FAMILIA);
@@ -116,10 +116,10 @@ public class Contractor
 	{
 		public static final String TABLE_NAME = "T_FAMILIA";
 		
-		public static final String ID = "ID";
+		public static final String ID = "_ID";
 		public static final String NOMBRE = "NOMBRE";
 		
-		public static final String PARAM_ID = "INTEGER PRIMARY KEY";
+		public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
 		public static final String PARAM_NOMBRE = "TEXT NOT NULL";
 		
 		public LinkedHashMap<String, String> setEstructura()
@@ -127,7 +127,7 @@ public class Contractor
 			LinkedHashMap<String, String> hm_estructura = new LinkedHashMap<String, String>();
 			
 			hm_estructura.put("TABLE_NAME", TABLE_NAME);
-			hm_estructura.put("ID", ID + " " + PARAM_ID);
+			hm_estructura.put("ID", TablaFamilia._ID + " " + PARAM_ID);
 			hm_estructura.put("NOMBRE", NOMBRE + " " + PARAM_NOMBRE);
 			
 			return hm_estructura;
@@ -144,8 +144,8 @@ public class Contractor
 		public static final String ID_PRODUCTO = "ID_PRODUCTO";		
 		
 		public static final String CONSTRAINT_PK_ID_LISTA_PRODUCTO = "CONSTRAINT PK_ID_LISTA_PRODUCTO PRIMARY KEY(ID_LISTA, ID_PRODUCTO)";
-		public static final String CONSTRAINT_FK_LISTAPRODUCTO_LISTA = "CONSTRAINT FK_LISTAPRODUCTO_LISTA FOREIGN KEY(ID_LISTA) REFERENCES T_LISTA(ID)";
-		public static final String CONSTRAINT_FK_LISTAPRODUCTO_PRODUCTO = "CONSTRAINT FK_LISTAPRODUCTO_PRODUCTO FOREIGN KEY(ID_PRODUCTO) REFERENCES T_PRODUCTO(ID)";
+		public static final String CONSTRAINT_FK_LISTAPRODUCTO_LISTA = "CONSTRAINT FK_LISTAPRODUCTO_LISTA FOREIGN KEY(ID_LISTA) REFERENCES T_LISTA("+ TablaLista._ID +")";
+		public static final String CONSTRAINT_FK_LISTAPRODUCTO_PRODUCTO = "CONSTRAINT FK_LISTAPRODUCTO_PRODUCTO FOREIGN KEY(ID_PRODUCTO) REFERENCES T_PRODUCTO("+ TablaProducto._ID +")";
 		
 		public LinkedHashMap<String, String> setEstructura()
 		{
@@ -158,11 +158,9 @@ public class Contractor
 			hm_estructura.put("CONSTRAINT_FK_LISTAPRODUCTO_LISTA", CONSTRAINT_FK_LISTAPRODUCTO_LISTA);
 			hm_estructura.put("CONSTRAINT_FK_LISTAPRODUCTO_PRODUCTO", CONSTRAINT_FK_LISTAPRODUCTO_PRODUCTO);
 			
-			return hm_estructura;
-			
+			return hm_estructura;	
 		}
-		
-		
+	
 	}
 	
 	public static class TablaFamiliaProducto implements BaseColumns
@@ -173,8 +171,8 @@ public class Contractor
 		public static final String ID_PRODUCTO = "ID_PRODUCTO";
 		
 		public static final String CONSTRAINT_PK_ID_FAMILIA_PRODUCTO = "CONSTRAINT PK_ID_FAMILIA_PRODUCTO PRIMARY KEY(ID_FAMILIA, ID_PRODUCTO)";
-		public static final String CONSTRAINT_FK_FAMILIAPRODUCTO_FAMILIA = "CONSTRAINT FK_FAMILIAPRODUCTO_FAMILIA FOREIGN KEY(ID_FAMILIA) REFERENCES T_FAMILIA(ID)";
-		public static final String CONSTRAINT_FK_FAMILIAPRODUCTO_PRODUCTO = "CONSTRAINT FK_FAMILIAPRODUCTO_PRODUCTO FOREIGN KEY(ID_PRODUCTO) REFERENCES T_PRODUCTO(ID)";
+		public static final String CONSTRAINT_FK_FAMILIAPRODUCTO_FAMILIA = "CONSTRAINT FK_FAMILIAPRODUCTO_FAMILIA FOREIGN KEY(ID_FAMILIA) REFERENCES T_FAMILIA("+ TablaFamilia._ID +")";
+		public static final String CONSTRAINT_FK_FAMILIAPRODUCTO_PRODUCTO = "CONSTRAINT FK_FAMILIAPRODUCTO_PRODUCTO FOREIGN KEY(ID_PRODUCTO) REFERENCES T_PRODUCTO("+ TablaProducto._ID +")";
 		
 		public LinkedHashMap<String, String> setEstructura()
 		{

@@ -32,7 +32,8 @@ public class BD_Manager extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) 
     {
     	
-    	Log.e("FALTAPAN","En Oncreate DB_Manager");
+    	Log.e("FALTAPAN","Estamos es:::::Oncreate DB_Manager");
+    	
        db.execSQL(new CreacionDeBD().CrearTabla(new TablaLista().setEstructura()));
        db.execSQL(new CreacionDeBD().CrearTabla(new TablaProducto().setEstructura()));
        db.execSQL(new CreacionDeBD().CrearTabla(new TablaFamilia().setEstructura()));
@@ -44,13 +45,15 @@ public class BD_Manager extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva) 
     {   
-    	Log.e("FALTAPAN","En OnUpgrade DB_Manager");
+    	Log.i("FALTAPAN","En OnUpgrade DB_Manager");
     	
     	String[] tablas = {new TablaListaProducto().TABLE_NAME,new TablaFamiliaProducto().TABLE_NAME,new TablaLista().TABLE_NAME,new TablaProducto().TABLE_NAME,new TablaFamilia().TABLE_NAME};
-    	String[] queries_borrado = new CreacionDeBD().BorrarTabla( tablas);
-    	for(String tabla:queries_borrado)
+    	String[] queries_borrado = new CreacionDeBD().BorrarTabla(tablas);
+    	
+    	for(String query:queries_borrado)
     	{
-    		db.execSQL(tabla);
+    		db.execSQL(query);
+    		Log.i("FALTAPAN","En OnUpgrade Haciendo " + query);
     	}
  
     	db.execSQL(new CreacionDeBD().CrearTabla(new TablaLista().setEstructura()));
@@ -58,6 +61,8 @@ public class BD_Manager extends SQLiteOpenHelper{
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaFamilia().setEstructura()));
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaListaProducto().setEstructura()));
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaFamiliaProducto().setEstructura()));
+        
+        db.execSQL("INSERT INTO T_LISTA VALUES(10,'Lunes','05/06','1010','Carrefour')");
     }
 
 }

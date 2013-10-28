@@ -9,7 +9,7 @@ import android.util.Log;
 public class Contractor
 {
 	public static final String DB_NAME = "DB_FALTAPAN.db";
-	public static final  int VERSION  = 13;
+	public static final  int VERSION  = 15;
 	public Contractor(){}
 	
 	public static String getDbName() {
@@ -29,12 +29,14 @@ public class Contractor
 		public static final String FECHA_CREACION = "FECHA_CREACION";
 		public static final String NUM_ELEMENTOS = "NUM_ELEMENTOS";
 		public static final String NOMBRE_TIENDA = "NOMBRE_TIENDA";
+		public static final String REF_IMAGEN = "REF_IMAGEN";
 		
 		public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
 		public static final String PARAM_NOMBRE = "TEXT NOT NULL";
 		public static final String PARAM_FECHA_CREACION = "INTEGER NOT NULL";
 		public static final String PARAM_NUM_ELEMENTOS = "INTEGER";
 		public static final String PARAM_NOMBRE_TIENDA = "TEXT";
+		public static final String PARAM_REF_IMAGEN = "INTEGER";
 		
 		public LinkedHashMap<String, String> setEstructura(){
 			LinkedHashMap<String, String> hm_estructura = new LinkedHashMap<String, String>();
@@ -45,6 +47,7 @@ public class Contractor
 			hm_estructura.put("FECHA_CREACION", FECHA_CREACION +  " "  + PARAM_FECHA_CREACION);
 			hm_estructura.put("NUM_ELEMENTOS", NUM_ELEMENTOS +  " " + PARAM_NUM_ELEMENTOS);
 			hm_estructura.put("NOMBRE_TIENDA", NOMBRE_TIENDA + " " + PARAM_NOMBRE_TIENDA);
+			hm_estructura.put("REF_IMAGEN", REF_IMAGEN + " " + PARAM_REF_IMAGEN);
 			
 			return hm_estructura;			
 		}
@@ -91,11 +94,13 @@ public class Contractor
 		public static final String NOMBRE = "NOMBRE";
 		public static final String FECHA_CREACION = "FECHA_CREACION";
 		public static final String FAMILIA = "FAMILIA";
+		public static final String REF_IMAGEN = "REF_IMAGEN";
 		
 		public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
 		public static final String PARAM_NOMBRE = "TEXT NOT NULL";
 		public static final String PARAM_FECHA_CREACION = "INTEGER";
 		public static final String PARAM_FAMILIA = "TEXT";
+		public static final String PARAM_REF_IMAGEN = "INTEGER";
 		
 		public LinkedHashMap<String, String> setEstructura(){
 			LinkedHashMap<String, String> hm_estructura = new LinkedHashMap<String, String>();
@@ -105,9 +110,9 @@ public class Contractor
 			hm_estructura.put("NOMBRE", NOMBRE + " " + PARAM_NOMBRE);
 			hm_estructura.put("FECHA_CREACION", FECHA_CREACION + " " + PARAM_FECHA_CREACION);
 			hm_estructura.put("FAMILIA", FAMILIA + " " + PARAM_FAMILIA);
+			hm_estructura.put("REF_IMAGEN", REF_IMAGEN + " " + PARAM_REF_IMAGEN);
 			
-			return hm_estructura;
-			
+			return hm_estructura;			
 		}
 		
 	}
@@ -118,9 +123,11 @@ public class Contractor
 		
 		public static final String ID = "_ID";
 		public static final String NOMBRE = "NOMBRE";
+		public static final String REF_IMAGEN = "REF_IMAGEN";
 		
 		public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
 		public static final String PARAM_NOMBRE = "TEXT NOT NULL";
+		public static final String PARAM_REF_IMAGEN = "INTEGER";
 		
 		public LinkedHashMap<String, String> setEstructura()
 		{
@@ -129,7 +136,7 @@ public class Contractor
 			hm_estructura.put("TABLE_NAME", TABLE_NAME);
 			hm_estructura.put("ID", TablaFamilia._ID + " " + PARAM_ID);
 			hm_estructura.put("NOMBRE", NOMBRE + " " + PARAM_NOMBRE);
-			
+			hm_estructura.put("REF_IMAGEN", REF_IMAGEN + " " + PARAM_REF_IMAGEN);
 			return hm_estructura;
 			
 		}
@@ -185,8 +192,7 @@ public class Contractor
 			hm_estructura.put("CONSTRAINT_FK_FAMILIAPRODUCTO_FAMILIA", CONSTRAINT_FK_FAMILIAPRODUCTO_FAMILIA);
 			hm_estructura.put("CONSTRAINT_FK_FAMILIAPRODUCTO_PRODUCTO", CONSTRAINT_FK_FAMILIAPRODUCTO_PRODUCTO);
 			
-			return hm_estructura;
-			
+			return hm_estructura;			
 		}
 	}
 	

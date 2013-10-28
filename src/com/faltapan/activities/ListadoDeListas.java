@@ -45,12 +45,12 @@ public class ListadoDeListas extends Activity{
 	public SimpleCursorAdapter getAdapter(){
 		Context context = this;
 		int layoutItem = R.layout.item_listado_listas;
-		String query = "SELECT _id,NOMBRE, NUM_ELEMENTOS FROM T_LISTA";
+		String query = "SELECT _id,NOMBRE, NUM_ELEMENTOS,REF_IMAGEN FROM T_LISTA";
 		Cursor cursor = getCursorLista(query);
-		int[] ref_controles = new int[]{R.id.B_TXV_ID1, R.id.B_TXV_ID2};
-		String[] nombre_cabeceras = new String[]{"NOMBRE", "NUM_ELEMENTOS"};
+		int[] ref_controles = new int[]{R.id.B_TXV_ID1, R.id.B_TXV_ID2,R.id.B_IV_ID1};
+		String[] nombre_cabeceras = new String[]{"NOMBRE", "NUM_ELEMENTOS","REF_IMAGEN"};
 
-		return  new SimpleCursorAdapter(context, layoutItem, cursor, nombre_cabeceras, ref_controles) ; 
+		return  new SimpleCursorAdapter(context, layoutItem, cursor, nombre_cabeceras, ref_controles,0) ; 
 	}
 	
 	public Cursor getCursorLista(String query)
@@ -68,8 +68,6 @@ public class ListadoDeListas extends Activity{
 		
 		return cursor;	
 	}
-
-
 }
 
 

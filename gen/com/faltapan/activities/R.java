@@ -42,15 +42,17 @@ public final class R {
         public static final int ic_faltapan_iii=0x7f020005;
     }
     public static final class id {
-        public static final int A_TXV_ID0=0x7f090002;
-        public static final int A_TXV_ID1=0x7f090003;
-        public static final int A_TXV_ID2=0x7f090004;
-        public static final int A_TXV_ID3=0x7f090005;
-        public static final int B_LV_0=0x7f090007;
-        public static final int B_TXV_ID0=0x7f090006;
-        public static final int B_TXV_ID1=0x7f090000;
-        public static final int B_TXV_ID2=0x7f090001;
-        public static final int action_settings=0x7f090008;
+        public static final int A_TXV_ID0=0x7f090004;
+        public static final int A_TXV_ID1=0x7f090005;
+        public static final int A_TXV_ID2=0x7f090006;
+        public static final int A_TXV_ID3=0x7f090007;
+        public static final int B_IV_ID1=0x7f090000;
+        public static final int B_IV_ID2=0x7f090003;
+        public static final int B_LV_0=0x7f090009;
+        public static final int B_TXV_ID0=0x7f090008;
+        public static final int B_TXV_ID1=0x7f090001;
+        public static final int B_TXV_ID2=0x7f090002;
+        public static final int action_settings=0x7f09000a;
     }
     public static final class layout {
         public static final int item_listado_listas=0x7f030000;

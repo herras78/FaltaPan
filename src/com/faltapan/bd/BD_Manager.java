@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.faltapan.activities.R;
 import com.faltapan.staticdata.Contractor;
 import com.faltapan.staticdata.Contractor.TablaFamilia;
 import com.faltapan.staticdata.Contractor.TablaFamiliaProducto;
@@ -30,8 +31,7 @@ public class BD_Manager extends SQLiteOpenHelper{
  
     @Override
     public void onCreate(SQLiteDatabase db) 
-    {
-    	
+    {   	
     	Log.e("FALTAPAN","Estamos es:::::Oncreate DB_Manager");
     	
        db.execSQL(new CreacionDeBD().CrearTabla(new TablaLista().setEstructura()));
@@ -53,7 +53,6 @@ public class BD_Manager extends SQLiteOpenHelper{
     	for(String query:queries_borrado)
     	{
     		db.execSQL(query);
-    		Log.i("FALTAPAN","En OnUpgrade Haciendo " + query);
     	}
  
     	db.execSQL(new CreacionDeBD().CrearTabla(new TablaLista().setEstructura()));
@@ -62,7 +61,18 @@ public class BD_Manager extends SQLiteOpenHelper{
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaListaProducto().setEstructura()));
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaFamiliaProducto().setEstructura()));
         
-        db.execSQL("INSERT INTO T_LISTA VALUES(10,'Lunes','05/06','1010','Carrefour')");
+        InsercionDatos(db);
+    }
+    
+    public void InsercionDatos(SQLiteDatabase db){
+    	
+    	db.execSQL("INSERT INTO T_LISTA VALUES(10,'Lunes','05/06','10 Productos','Carrefour'," + R.drawable.ic_faltapan_i + ")");
+    	db.execSQL("INSERT INTO T_LISTA VALUES(11,'Compra Martes','05/04/2013','5 Productos','Dia'," + R.drawable.ic_faltapan_ii + ")");
+    	db.execSQL("INSERT INTO T_LISTA VALUES(12,'Cena Domingo','05/04/2013','8 Productos','Dia'," + R.drawable.ic_faltapan_iii + ")");
+    	db.execSQL("INSERT INTO T_LISTA VALUES(13,'Material Escolar','05/04/2013','3 Productos','Dia'," + R.drawable.ic_faltapan_i + ")");
+    	db.execSQL("INSERT INTO T_LISTA VALUES(14,'Lista Cumpleaños','05/04/2013','2 Productos','Dia'," + R.drawable.ic_faltapan_ii + ")");
+    	db.execSQL("INSERT INTO T_LISTA VALUES(15,'Cena Domingo','05/04/2013','3 Productos','Dia'," + R.drawable.ic_faltapan_iii + ")");
+       
     }
 
 }

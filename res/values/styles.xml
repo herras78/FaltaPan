@@ -32,7 +32,7 @@
     <style name="B_LV_ITEM_STYLE_0" parent="@android:style/TextAppearance.Medium">
 	    <item name="android:layout_width">wrap_content</item>
 	    <item name="android:layout_height">wrap_content</item>
-	    <item name="android:textSize">@dimen/TEXT_SIZE_L</item>
+	    <item name="android:textSize">@dimen/TEXT_SIZE_XL</item>
 	    <item name="android:textColor">@color/azul_oscuro</item>
 		<item name="android:padding">@dimen/A_BTN_PADDING</item> 
 	    <item name="android:gravity">left</item>
@@ -41,7 +41,7 @@
 	<style name="B_LV_ITEM_STYLE_1" parent="@android:style/TextAppearance.Medium">
 	    <item name="android:layout_width">wrap_content</item>
 	    <item name="android:layout_height">wrap_content</item>
-	    <item name="android:textSize">@dimen/TEXT_SIZE_M</item>
+	    <item name="android:textSize">@dimen/TEXT_SIZE_S</item>
 	    <item name="android:textColor">@color/azul_oscuro</item>
 		<item name="android:padding">@dimen/A_BTN_PADDING</item> 
 	    <item name="android:gravity">left</item>

@@ -9,14 +9,19 @@ import android.util.Log;
 public class Contractor
 {
 	public static final String DB_NAME = "DB_FALTAPAN.db";
-	public static final  int VERSION  = 15;
-	public Contractor(){}
+	public static final  int VERSION  = 16;
 	
-	public static String getDbName() {
+	public String[] getTableNames(){
+		String[] tablas = {new TablaListaProducto().TABLE_NAME,new TablaFamiliaProducto().TABLE_NAME,
+				new TablaLista().TABLE_NAME,new TablaProducto().TABLE_NAME,new TablaFamilia().TABLE_NAME};
+		return tablas;
+	}
+	
+	public static String getDbName(){
 		return DB_NAME;
 	}
 
-	public static int getVersion() {
+	public static int getVersion(){
 		return VERSION;
 	}
 
@@ -24,7 +29,6 @@ public class Contractor
 	{
 		public static final String TABLE_NAME = "T_LISTA";
 		
-		public static final String ID = "_ID";
 		public static final String NOMBRE = "NOMBRE";
 		public static final String FECHA_CREACION = "FECHA_CREACION";
 		public static final String NUM_ELEMENTOS = "NUM_ELEMENTOS";
@@ -51,13 +55,16 @@ public class Contractor
 			
 			return hm_estructura;			
 		}
-
+		
+		public String[] nomCabeceras()
+		{
+			String[] nombre_cabeceras = new String[]{NOMBRE, NUM_ELEMENTOS};
+			
+			return nombre_cabeceras;	
+		}
+		
 		public static String getTableName() {
 			return TABLE_NAME;
-		}
-
-		public static String getId() {
-			return ID;
 		}
 
 		public static String getNombre() {
@@ -75,22 +82,13 @@ public class Contractor
 		public static String getNombreTienda() {
 			return NOMBRE_TIENDA;
 		}
-		
-		public String[] nomCabeceras()
-		{
-			String[] nombre_cabeceras = new String[]{NOMBRE, NUM_ELEMENTOS};
-			
-			return nombre_cabeceras;
-			
-		}
-		
 	}
 	
 	public static class TablaProducto implements BaseColumns
 	{
+
 		public static final String TABLE_NAME = "T_PRODUCTO";
-		
-		public static final String ID = "_ID";
+
 		public static final String NOMBRE = "NOMBRE";
 		public static final String FECHA_CREACION = "FECHA_CREACION";
 		public static final String FAMILIA = "FAMILIA";
@@ -114,14 +112,31 @@ public class Contractor
 			
 			return hm_estructura;			
 		}
-		
+		public static String getTableName() {
+			return TABLE_NAME;
+		}
+
+		public static String getNombre() {
+			return NOMBRE;
+		}
+
+		public static String getFechaCreacion() {
+			return FECHA_CREACION;
+		}
+
+		public static String getFamilia() {
+			return FAMILIA;
+		}
+
+		public static String getRefImagen() {
+			return REF_IMAGEN;
+		}	
 	}
 	
-	public static class TablaFamilia implements BaseColumns
+	public static class TablaFamilia implements BaseColumns	
 	{
 		public static final String TABLE_NAME = "T_FAMILIA";
 		
-		public static final String ID = "_ID";
 		public static final String NOMBRE = "NOMBRE";
 		public static final String REF_IMAGEN = "REF_IMAGEN";
 		
@@ -137,8 +152,19 @@ public class Contractor
 			hm_estructura.put("ID", TablaFamilia._ID + " " + PARAM_ID);
 			hm_estructura.put("NOMBRE", NOMBRE + " " + PARAM_NOMBRE);
 			hm_estructura.put("REF_IMAGEN", REF_IMAGEN + " " + PARAM_REF_IMAGEN);
-			return hm_estructura;
-			
+			return hm_estructura;		
+		}
+		
+		public static String getTableName() {
+			return TABLE_NAME;
+		}
+
+		public static String getNombre() {
+			return NOMBRE;
+		}
+
+		public static String getRefImagen() {
+			return REF_IMAGEN;
 		}
 	}
 	
@@ -167,7 +193,6 @@ public class Contractor
 			
 			return hm_estructura;	
 		}
-	
 	}
 	
 	public static class TablaFamiliaProducto implements BaseColumns
@@ -194,7 +219,6 @@ public class Contractor
 			
 			return hm_estructura;			
 		}
-	}
-	
+	}	
 }
 

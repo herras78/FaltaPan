@@ -32,39 +32,33 @@ public class BD_Manager extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) 
     {   	
-    	Log.e("FALTAPAN","Estamos es:::::Oncreate DB_Manager");
     	
-       db.execSQL(new CreacionDeBD().CrearTabla(new TablaLista().setEstructura()));
-       db.execSQL(new CreacionDeBD().CrearTabla(new TablaProducto().setEstructura()));
-       db.execSQL(new CreacionDeBD().CrearTabla(new TablaFamilia().setEstructura()));
-       db.execSQL(new CreacionDeBD().CrearTabla(new TablaListaProducto().setEstructura()));
-       db.execSQL(new CreacionDeBD().CrearTabla(new TablaFamiliaProducto().setEstructura()));
+    	creaTablasInsertaDatos(db);
           
     }
  
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva) 
     {   
-    	Log.i("FALTAPAN","En OnUpgrade DB_Manager");
+    	Log.i("FALTAPAN","En OnUpgrade DB_Manager");   	
     	
-    	String[] tablas = {new TablaListaProducto().TABLE_NAME,new TablaFamiliaProducto().TABLE_NAME,new TablaLista().TABLE_NAME,new TablaProducto().TABLE_NAME,new TablaFamilia().TABLE_NAME};
-    	String[] queries_borrado = new CreacionDeBD().BorrarTabla(tablas);
+    	String[] queries_borrado = new CreacionDeBD().BorrarTabla(new Contractor().getTableNames());
     	
     	for(String query:queries_borrado)
     	{
     		db.execSQL(query);
     	}
- 
+        
+    	creaTablasInsertaDatos(db);
+    }
+    
+    public void creaTablasInsertaDatos(SQLiteDatabase db){
+    	
     	db.execSQL(new CreacionDeBD().CrearTabla(new TablaLista().setEstructura()));
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaProducto().setEstructura()));
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaFamilia().setEstructura()));
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaListaProducto().setEstructura()));
         db.execSQL(new CreacionDeBD().CrearTabla(new TablaFamiliaProducto().setEstructura()));
-        
-        InsercionDatos(db);
-    }
-    
-    public void InsercionDatos(SQLiteDatabase db){
     	
     	db.execSQL("INSERT INTO T_LISTA VALUES(10,'Lunes','05/06','10 Productos','Carrefour'," + R.drawable.ic_faltapan_i + ")");
     	db.execSQL("INSERT INTO T_LISTA VALUES(11,'Compra Martes','05/04/2013','5 Productos','Dia'," + R.drawable.ic_faltapan_ii + ")");

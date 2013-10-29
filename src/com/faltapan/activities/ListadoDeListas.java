@@ -5,41 +5,27 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.faltapan.bd.BD_Manager;
 
 public class ListadoDeListas extends Activity{
 	
-	/*Lista[] listas =  new Lista[]{
-	        new Lista("Compra Martes", "05/04/2013","5","Dia",R.drawable.ic_faltapan_i),
-	        new Lista("Cena Domingo", "05/04/2013","6","Carrefour",R.drawable.ic_faltapan_ii),
-	        new Lista("Material Escolar", "05/04/2013","7","Carrefour",R.drawable.ic_faltapan_iii),
-	        new Lista("Compra Domingo", "05/04/2013","8","LIDL",R.drawable.ic_faltapan_i),
-	        new Lista("Lista Cumpleaños", "05/04/2013","9","Mercadona",R.drawable.ic_faltapan_ii),
-	        new Lista("Material Escolar", "05/04/2013","7","Carrefour",R.drawable.ic_faltapan_iii),
-	        new Lista("Compra Martes", "05/04/2013","5","Dia",R.drawable.ic_faltapan_i),
-	        new Lista("Cena Domingo", "05/04/2013","6","Carrefour",R.drawable.ic_faltapan_ii),
-	        new Lista("Material Escolar", "05/04/2013","7","Carrefour",R.drawable.ic_faltapan_iii),
-	        new Lista("Compra Domingo", "05/04/2013","8","LIDL",R.drawable.ic_faltapan_i),
-	        new Lista("Lista Cumpleaños", "05/04/2013","9","Mercadona",R.drawable.ic_faltapan_ii),
-	        new Lista("Material Escolar", "05/04/2013","7","Carrefour",R.drawable.ic_faltapan_iii)};*/
-			
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_listado_listas);
-		
-		/*listado_listas = (ListView) findViewById(R.id.B_LV_0);
-		AdaptadorListadoListas adaptador = new AdaptadorListadoListas(ListadoDeListas.this,R.layout.item_listado_listas,listas) ;
-		listado_listas.setAdapter(adaptador);*/
 	
 		ListView listado_listas = (ListView) findViewById(R.id.B_LV_0);
-		listado_listas.setAdapter(getAdapter());	
+		listado_listas.setAdapter(getAdapter());
+		setFont();
 	}
 		
 	public SimpleCursorAdapter getAdapter(){
@@ -67,6 +53,17 @@ public class ListadoDeListas extends Activity{
 		};
 		
 		return cursor;	
+	}
+	
+	public void setFont()
+	{
+		int[] ref_controles = new int[]{R.id.B_TXV_ID0};
+		Typeface font = Typeface.createFromAsset(getAssets(), "rabiohead.ttf");
+		
+		for(int txvId:ref_controles){
+			TextView tv = (TextView) findViewById(txvId);
+			tv.setTypeface(font);
+		}
 	}
 }
 

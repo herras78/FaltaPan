@@ -2,6 +2,7 @@ package com.faltapan.activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,6 +10,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,6 +30,28 @@ public class ListadoDeListas extends Activity{
 		ListView listado_listas = (ListView) findViewById(R.id.B_LV_0);
 		listado_listas.setAdapter(getAdapter());
 		setFont();
+		
+			 
+		listado_listas.setOnItemClickListener(new OnItemClickListener() {
+		    @Override
+		    public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+		    	
+		    //	Log.i("PRUEBA ******************", ((TextView)v.findViewById(R.id.B_TXV_ID1)).getText().toString());    
+		    	
+		    	Bundle bdl = new Bundle();
+		    	
+		    	bdl.putString("NOMBRE", ((TextView)v.findViewById(R.id.B_TXV_ID1)).getText().toString());
+		    	
+		    	Intent itn = new Intent(ListadoDeListas.this, ListadoProductos.class);
+		    	itn.putExtras(bdl);
+		    	
+		        
+		 
+		       
+		    }
+		});
+		
+		
 	}
 		
 	public SimpleCursorAdapter getAdapter(){

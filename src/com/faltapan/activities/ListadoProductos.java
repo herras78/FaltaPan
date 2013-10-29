@@ -1,6 +1,7 @@
 package com.faltapan.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 public class ListadoProductos extends Activity{
@@ -10,6 +11,14 @@ public class ListadoProductos extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_listado_productos);
+		
+		Intent itn = new Intent();
+		
+	
 	}
+
+	
+	
+	
 
 }

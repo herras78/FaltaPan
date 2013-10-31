@@ -18,8 +18,7 @@ import android.widget.TextView;
 
 import com.faltapan.bd.BD_Manager;
 
-public class ListadoDeListas extends Activity{
-	
+public class ListadoDeListas extends Activity{	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,28 +29,22 @@ public class ListadoDeListas extends Activity{
 		ListView listado_listas = (ListView) findViewById(R.id.B_LV_0);
 		listado_listas.setAdapter(getAdapter());
 		setFont();
-		
 			 
 		listado_listas.setOnItemClickListener(new OnItemClickListener() {
 		    @Override
 		    public void onItemClick(AdapterView<?> a, View v, int position, long id) {
 		    	
-		    //	Log.i("PRUEBA ******************", ((TextView)v.findViewById(R.id.B_TXV_ID1)).getText().toString());    
+		    	//Log.i("PRUEBA ******************", ((TextView)v.findViewById(R.id.B_TXV_ID1)).getText().toString());    
 		    	
 		    	Bundle bdl = new Bundle();
 		    	
 		    	bdl.putString("NOMBRE", ((TextView)v.findViewById(R.id.B_TXV_ID1)).getText().toString());
-		    	
+		    	//Log.i("PRUEBA bdl  ******************",bdl.get("NOMBRE").toString());
 		    	Intent itn = new Intent(ListadoDeListas.this, ListadoProductos.class);
-		    	itn.putExtras(bdl);
-		    	
-		        
-		 
-		       
+		    	itn.putExtras(bdl);	    
+		    	startActivity(itn);
 		    }
-		});
-		
-		
+		});		
 	}
 		
 	public SimpleCursorAdapter getAdapter(){
@@ -76,8 +69,7 @@ public class ListadoDeListas extends Activity{
 			
 		}catch(SQLException e){
 			Log.e("**SQL FALTAPAN","Error SQL:" + e.getMessage() );
-		};
-		
+		};		
 		return cursor;	
 	}
 	

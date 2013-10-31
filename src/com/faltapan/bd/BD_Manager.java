@@ -67,6 +67,20 @@ public class BD_Manager extends SQLiteOpenHelper{
     	db.execSQL("INSERT INTO T_LISTA VALUES(14,'Lista Cumpleaños','05/04/2013','2 Productos','Dia'," + R.drawable.ic_faltapan_ii + ")");
     	db.execSQL("INSERT INTO T_LISTA VALUES(15,'Cena Domingo','05/04/2013','3 Productos','Dia'," + R.drawable.ic_faltapan_iii + ")");
        
+    	
+    	db.execSQL("INSERT INTO T_PRODUCTO VALUES(10,'LIMON','05/06','FRUTA'," + R.drawable.ic_faltapan_i + ")");
+    	db.execSQL("INSERT INTO T_PRODUCTO VALUES(11,'CACA','05/04/2013','MANJAR'," + R.drawable.ic_faltapan_i + ")");
+    	db.execSQL("INSERT INTO T_PRODUCTO VALUES(12,'PUTILLAS','05/04/2013','LUJO'," + R.drawable.ic_faltapan_i + ")");
+    	db.execSQL("INSERT INTO T_PRODUCTO VALUES(13,'MANZANA','05/04/2013','FRUTA'," + R.drawable.ic_faltapan_i + ")");
+    	db.execSQL("INSERT INTO T_PRODUCTO VALUES(14,'MERLUZA','05/04/2013','PESCADO'," + R.drawable.ic_faltapan_i + ")");
+    	db.execSQL("INSERT INTO T_PRODUCTO VALUES(15,'FRESAS','05/04/2013','FRUTA'," + R.drawable.ic_faltapan_i + ")");
+    	
+    	db.execSQL("INSERT INTO T_A_LISTAPRODUCTO VALUES(10,11)");
+    	db.execSQL("INSERT INTO T_A_LISTAPRODUCTO VALUES(10,15)");
+    	db.execSQL("INSERT INTO T_A_LISTAPRODUCTO VALUES(12,10)");
+    	db.execSQL("INSERT INTO T_A_LISTAPRODUCTO VALUES(13,14)");
+    	db.execSQL("INSERT INTO T_A_LISTAPRODUCTO VALUES(14,15)");
+    	db.execSQL("INSERT INTO T_A_LISTAPRODUCTO VALUES(15,13)");
     }
 
 }

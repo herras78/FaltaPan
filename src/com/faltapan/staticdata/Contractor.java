@@ -9,7 +9,7 @@ import android.util.Log;
 public class Contractor
 {
 	public static final String DB_NAME = "DB_FALTAPAN.db";
-	public static final  int VERSION  = 16;
+	public static final  int VERSION  = 20;
 	
 	public String[] getTableNames(){
 		String[] tablas = {new TablaListaProducto().TABLE_NAME,new TablaFamiliaProducto().TABLE_NAME,
@@ -184,7 +184,7 @@ public class Contractor
 		{
 			LinkedHashMap<String, String> hm_estructura = new LinkedHashMap<String, String>();
 			
-			hm_estructura.put("TABLE_NAME", TABLE_NAME);
+			hm_estructura.put("TABLE_NAME", TABLE_NAME);			
 			hm_estructura.put("ID_LISTA", ID_LISTA );
 			hm_estructura.put("ID_PRODUCTO", ID_PRODUCTO);
 			hm_estructura.put("CONSTRAINT_PK_ID_LISTA_PRODUCTO", CONSTRAINT_PK_ID_LISTA_PRODUCTO);

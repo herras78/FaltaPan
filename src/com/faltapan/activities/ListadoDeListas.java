@@ -29,6 +29,8 @@ public class ListadoDeListas extends Activity{
 		ListView listado_listas = (ListView) findViewById(R.id.B_LV_0);
 		listado_listas.setAdapter(getAdapter());
 		setFont();
+		
+		
 			 
 		listado_listas.setOnItemClickListener(new OnItemClickListener() {
 		    @Override
@@ -54,6 +56,8 @@ public class ListadoDeListas extends Activity{
 		Cursor cursor = getCursorLista(query);
 		int[] ref_controles = new int[]{R.id.B_TXV_ID1, R.id.B_TXV_ID2,R.id.B_IV_ID1};
 		String[] nombre_cabeceras = new String[]{"NOMBRE", "NUM_ELEMENTOS","REF_IMAGEN"};
+		
+		
 
 		return  new SimpleCursorAdapter(context, layoutItem, cursor, nombre_cabeceras, ref_controles,0) ; 
 	}
